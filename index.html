@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Tom Soghomonian, développeur d'apps</title>
+<meta name="description" content="Portfolio de Tom Soghomonian, développeur d'apps iOS indépendant. 8 applications publiées.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html">Portfolio</a>
+  <div class="status mono"><span class="dot"></span>Disponible — 2026</div>
+  <nav>
+    <a href="index.html" class="active">Projets</a>
+    <a href="sur-moi.html">Sur moi</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main id="stage">
+  <div class="rail" id="rail" aria-label="Mes applications">
+<a class="card" href="apps/hypetogo.html" aria-label="HypeToGo">
+  <span class="apptitle">HypeToGo</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/hypetogo_ecran.jpg" alt="Écran d'accueil de HypeToGo"></div>
+</div>
+  <span class="tag">Tous les événements de Paris</span>
+</a>
+<a class="card" href="apps/grimoa.html" aria-label="Grimoa">
+  <span class="apptitle">Grimoa</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/grimoa_ecran.jpg" alt="Écran d'accueil de Grimoa"></div>
+</div>
+  <span class="tag">Le patrimoine français autour de vous</span>
+</a>
+<a class="card" href="apps/geodex.html" aria-label="Geodex">
+  <span class="apptitle">Geodex</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/geodex_ecran.jpg" alt="Écran d'accueil de Geodex"></div>
+</div>
+  <span class="tag">La géographie du monde, hors-ligne</span>
+</a>
+<a class="card" href="apps/retour.html" aria-label="Retour">
+  <span class="apptitle">Retour</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/retour_ecran.jpg" alt="Écran d'accueil de Retour"></div>
+</div>
+  <span class="tag">Le rituel du retour de voyage</span>
+</a>
+<a class="card" href="apps/monkawa.html" aria-label="Mon Kawa">
+  <span class="apptitle">Mon Kawa</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/monkawa_ecran.jpg" alt="Écran d'accueil de Mon Kawa"></div>
+</div>
+  <span class="tag">Votre compagnon café du quotidien</span>
+</a>
+<a class="card" href="apps/microcotiz.html" aria-label="MicroCotiz">
+  <span class="apptitle">MicroCotiz</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/microcotiz_ecran.jpg" alt="Écran d'accueil de MicroCotiz"></div>
+</div>
+  <span class="tag">Le compagnon des auto-entrepreneurs</span>
+</a>
+<a class="card" href="apps/dimanche.html" aria-label="Dimanche">
+  <span class="apptitle">Dimanche</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/dimanche_ecran.jpg" alt="Écran d'accueil de Dimanche"></div>
+</div>
+  <span class="tag">L'app qui n'ouvre que le dimanche soir</span>
+</a>
+<a class="card" href="apps/risqcheck.html" aria-label="RisqCheck">
+  <span class="apptitle">RisqCheck</span>
+  <div class="phone">
+  <div class="screen"><img class="shot" src="img/risqcheck_ecran.jpg" alt="Écran d'accueil de RisqCheck"></div>
+</div>
+  <span class="tag">Les risques naturels de votre adresse</span>
+</a>
+  </div>
+</main>
+<div class="bottombar">
+  <div class="who">Tom Soghomonian<br><em>Développeur d'apps</em></div>
+  <div class="dashes" id="dashes"><button aria-label="Aller à HypeToGo"></button><button aria-label="Aller à Grimoa"></button><button aria-label="Aller à Geodex"></button><button aria-label="Aller à Retour"></button><button aria-label="Aller à Mon Kawa"></button><button aria-label="Aller à MicroCotiz"></button><button aria-label="Aller à Dimanche"></button><button aria-label="Aller à RisqCheck"></button></div>
+  <div id="currentName">HypeToGo</div>
+</div>
+<script>
+const NAMES = ['HypeToGo', 'Grimoa', 'Geodex', 'Retour', 'Mon Kawa', 'MicroCotiz', 'Dimanche', 'RisqCheck'];
+const rail = document.getElementById('rail');
+const dashes = document.getElementById('dashes');
+const currentName = document.getElementById('currentName');
+[...dashes.children].forEach((b,i)=>b.addEventListener('click',()=>{
+  rail.children[i].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+}));
+function syncActive(){
+  const mid = rail.scrollLeft + rail.clientWidth/2;
+  let best=0, bd=Infinity;
+  [...rail.children].forEach((el,i)=>{
+    const c = el.offsetLeft + el.offsetWidth/2;
+    const d = Math.abs(c-mid);
+    if(d<bd){bd=d;best=i;}
+  });
+  currentName.textContent = NAMES[best];
+  [...dashes.children].forEach((el,i)=>el.classList.toggle('on', i===best));
+}
+rail.addEventListener('scroll', ()=>requestAnimationFrame(syncActive), {passive:true});
+window.addEventListener('resize', syncActive);
+syncActive();
+</script>
+</body>
+</html>

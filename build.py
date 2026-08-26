@@ -9,6 +9,10 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# Incrémenter à chaque modification de css/style.css pour invalider le cache
+# (GitHub Pages sert le CSS avec max-age=600).
+CSS_VERSION = "2"
+
 # ---------------------------------------------------------------------------
 # Données centrales — une entrée par app, dans l'ordre du carrousel.
 # Les chemins d'images sont relatifs à la racine du site (img/...).
@@ -246,7 +250,7 @@ def head(title, description, root=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{root}css/style.css">
+<link rel="stylesheet" href="{root}css/style.css?v={CSS_VERSION}">
 </head>
 <body>"""
 

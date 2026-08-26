@@ -47,7 +47,7 @@ nav a:hover,nav a.active{color:var(--ink)}
 
 /* ---------- FOOTER BAR ---------- */
 .bottombar{
-  position:fixed;bottom:0;left:0;right:0;z-index:40;
+  position:absolute;bottom:0;left:0;right:0;z-index:40;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:end;
   padding:20px 40px;
   background:linear-gradient(transparent, var(--paper) 45%);
@@ -75,6 +75,7 @@ nav a:hover,nav a.active{color:var(--ink)}
 }
 
 /* ---------- CARROUSEL ---------- */
+#projets{position:relative}
 #stage{
   height:100vh;height:100svh;
   display:flex;flex-direction:column;justify-content:center;
@@ -123,7 +124,7 @@ nav a:hover,nav a.active{color:var(--ink)}
 /* éléments génériques des mini-écrans */
 
 /* ---------- PAGES INTERNES ---------- */
-main.page{
+main.page,section.page{
   flex:1;
   width:100%;max-width:1020px;margin:0 auto;
   padding:130px 40px 160px;
@@ -218,7 +219,7 @@ p.big{
   #currentName{display:none}
   .dashes{justify-self:end}
   .dashes button{width:20px}
-  main.page{padding:110px 20px 120px}
+  main.page,section.page{padding:110px 20px 120px}
   .gallery{grid-auto-flow:row;grid-template-columns:repeat(2,1fr)}
   .hero-app{grid-template-columns:1fr}
   .hero-app .phone{--card-h:340px;justify-self:center}

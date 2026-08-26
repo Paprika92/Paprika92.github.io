@@ -15,12 +15,14 @@
   <a class="logo" href="index.html">Portfolio</a>
   <div class="status mono"><span class="dot"></span>Disponible — 2026</div>
   <nav>
-    <a href="index.html" class="active">Projets</a>
-    <a href="sur-moi.html">Sur moi</a>
-    <a href="contact.html">Contact</a>
+    <a href="#projets" class="active">Projets</a>
+    <a href="#sur-moi">Sur moi</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
-<main id="stage">
+<main>
+<section id="projets">
+<div id="stage">
   <div class="rail" id="rail" aria-label="Mes applications">
 <a class="card" href="apps/hypetogo.html" aria-label="HypeToGo">
   <span class="apptitle">HypeToGo</span>
@@ -79,12 +81,44 @@
   <span class="tag">Les risques naturels de votre adresse</span>
 </a>
   </div>
-</main>
+</div>
 <div class="bottombar">
   <div class="who">Tom Soghomonian<br><em>Développeur d'apps</em></div>
   <div class="dashes" id="dashes"><button aria-label="Aller à HypeToGo"></button><button aria-label="Aller à Grimoa"></button><button aria-label="Aller à Geodex"></button><button aria-label="Aller à Retour"></button><button aria-label="Aller à Mon Kawa"></button><button aria-label="Aller à MicroCotiz"></button><button aria-label="Aller à Dimanche"></button><button aria-label="Aller à RisqCheck"></button></div>
   <div id="currentName">HypeToGo</div>
 </div>
+</section>
+<section class="page" id="sur-moi">
+  <span class="mono" style="color:var(--muted)">Sur moi</span>
+  <h1 class="giant">Tom<br>Soghomonian</h1>
+  <p class="big" style="margin-top:30px">Développeur iOS indépendant de <span id="age">32</span> ans, basé à Paris. Je conçois, développe et publie mes propres applications de A à Z — de l'idée au design, du code jusqu'à l'App Store.</p>
+  <div class="facts">
+    <div><strong>8</strong><span>apps développées</span></div>
+    <div><strong>iOS</strong><span>React Native · Expo · TypeScript</span></div>
+    <div><strong>Solo</strong><span>design, dev, publication</span></div>
+  </div>
+  <span class="mono sec-title">Mon parcours</span>
+  <p class="desc">Formé au web design (BTS), je me suis ensuite spécialisé en développement mobile en autodidacte. Aujourd'hui je construis des apps iOS complètes en solo : chaque projet part d'une idée simple, passe par le design, le développement, les tests, puis la publication et le suivi sur l'App Store. Micro-entrepreneur, je gère aussi tout le reste — fiches store, sites vitrines, marketing, support.</p>
+  <span class="mono sec-title">Ma façon de travailler</span>
+  <p class="desc">Je crois aux apps qui font une chose, et qui la font bien : des interfaces épurées, sans compte quand c'est possible, sans pub, respectueuses des données. Ma stack est la même sur tous mes projets — React Native, Expo, TypeScript — ce qui me permet d'aller vite de l'idée au store. Certaines de mes apps tournent sur mon propre backend auto-hébergé.</p>
+  <span class="mono sec-title">Et aussi</span>
+  <p class="desc">Je suis disponible pour développer votre application : particulier, indépendant ou petite entreprise, je prends en charge le projet de A à Z, du cahier des charges à la mise en ligne. <a href="#contact" style="border-bottom:2px solid var(--line)">Contactez-moi</a>.</p>
+  <span class="mono sec-title">Mes apps</span>
+  <div class="applist"><a href="apps/hypetogo.html" style="--c:#6C4CF0">HypeToGo<i></i></a><a href="apps/grimoa.html" style="--c:#5B3A6E">Grimoa<i></i></a><a href="apps/geodex.html" style="--c:#1F5FA8">Geodex<i></i></a><a href="apps/retour.html" style="--c:#2B2B2B">Retour<i></i></a><a href="apps/monkawa.html" style="--c:#B4633A">Mon Kawa<i></i></a><a href="apps/microcotiz.html" style="--c:#3A665B">MicroCotiz<i></i></a><a href="apps/dimanche.html" style="--c:#17151C">Dimanche<i></i></a><a href="apps/risqcheck.html" style="--c:#2D5A3D">RisqCheck<i></i></a></div>
+</section>
+<section class="page" id="contact">
+  <span class="mono" style="color:var(--muted)">Contact</span>
+  <h1 class="giant">Parlons-en</h1>
+  <p class="big" style="margin-top:30px">Un projet d'app, une question, une collaboration ? Écrivez-moi.</p>
+  <div class="contactlinks">
+    <a href="mailto:soghomoniantom@gmail.com">soghomoniantom@gmail.com</a>
+    <a href="https://github.com/Paprika92" target="_blank" rel="noopener">github.com/Paprika92</a>
+    <a href="https://www.malt.fr/profile/tomsoghomoniantom" target="_blank" rel="noopener">malt.fr — freelance</a>
+    <a href="https://www.codeur.com/-tomsogho" target="_blank" rel="noopener">codeur.com — freelance</a>
+  </div>
+  <p class="mono" style="color:var(--muted);margin-top:40px">Basé à Paris · Réponse sous 24h</p>
+</section>
+</main>
 <script>
 const NAMES = ['HypeToGo', 'Grimoa', 'Geodex', 'Retour', 'Mon Kawa', 'MicroCotiz', 'Dimanche', 'RisqCheck'];
 const rail = document.getElementById('rail');
@@ -107,6 +141,13 @@ function syncActive(){
 rail.addEventListener('scroll', ()=>requestAnimationFrame(syncActive), {passive:true});
 window.addEventListener('resize', syncActive);
 syncActive();
+document.getElementById('age').textContent = (function(){
+  const b = new Date(1994, 1, 16); // 16 février 1994
+  const n = new Date();
+  let a = n.getFullYear() - b.getFullYear();
+  if (n.getMonth() < 1 || (n.getMonth() === 1 && n.getDate() < 16)) a--;
+  return a;
+})();
 </script>
 </body>
 </html>

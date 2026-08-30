@@ -210,17 +210,43 @@ p.big{
 
 /* ---------- MOBILE ---------- */
 @media (max-width:720px){
-  header{padding:16px 20px}
+  html,body{overflow-x:clip}
+  header{padding:14px 20px}
   nav{gap:18px}
   .status{display:none}
-  .rail{padding:24px 20px}
-  :root{--card-h:56vh}
-  .bottombar{padding:14px 20px;grid-template-columns:1fr auto}
+
+  /* Carrousel : hauteur bornée pour ne passer ni sous le header ni sous la bottombar */
+  :root{
+    --card-h:min(52vh, calc(100vh - 240px), 460px);
+    --card-h:min(52svh, calc(100svh - 240px), 460px);
+  }
+  #stage{padding:60px 0 76px}
+  .rail{padding:12px 20px}
+  .card .apptitle{font-size:18px}
+  .card .tag{font-size:13px;max-width:26ch}
+
+  /* Bottombar */
+  .bottombar{padding:12px 20px;grid-template-columns:auto 1fr;align-items:center;gap:12px}
   #currentName{display:none}
-  .dashes{justify-self:end}
-  .dashes button{width:20px}
-  main.page,section.page{padding:110px 20px 120px}
+  .who{font-size:11.5px}
+  .dashes{justify-self:end;flex-wrap:wrap;gap:6px}
+  .dashes button{width:18px}
+
+  /* Pages internes */
+  main.page,section.page{padding:96px 20px 110px}
+  h1.giant{font-size:clamp(26px,9.6vw,40px)}
+  p.big{font-size:clamp(17px,4.6vw,22px)}
+  .facts{gap:22px 28px}
+  .facts div strong{font-size:24px}
+  .meta{gap:18px 28px}
   .gallery{grid-auto-flow:row;grid-template-columns:repeat(2,1fr)}
   .hero-app{grid-template-columns:1fr}
   .hero-app .phone{--card-h:340px;justify-self:center}
+  .contactlinks a{font-size:clamp(16px,5.2vw,22px);overflow-wrap:anywhere}
+}
+@media (max-width:380px){
+  nav{gap:14px}
+  .dashes{gap:5px}
+  .dashes button{width:14px}
+  .who{font-size:11px}
 }

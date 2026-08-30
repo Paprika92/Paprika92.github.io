@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Incrémenter à chaque modification de css/style.css pour invalider le cache
 # (GitHub Pages sert le CSS avec max-age=600).
-CSS_VERSION = "2"
+CSS_VERSION = "3"
 
 # ---------------------------------------------------------------------------
 # Données centrales — une entrée par app, dans l'ordre du carrousel.

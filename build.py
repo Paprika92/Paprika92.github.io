@@ -24,7 +24,7 @@ APPS = [
         "name": "HypeToGo",
         "tagline": "Tous les événements de Paris",
         "accent": "#6C4CF0",
-        "category": "Sorties · Événements — 2026",
+        "category": "Sorties · Événements · 2026",
         "year": "2026",
         "ecran": "img/hypetogo_ecran.png",
         "desc": "HypeToGo regroupe les événements de Paris intra-muros : concerts, expos, soirées, spectacles… Explorez par liste ou par carte autour de vous, gardez vos favoris et organisez vos sorties dans un planning présenté en timeline, avec notifications pour ne rien rater.",
@@ -51,10 +51,10 @@ APPS = [
         "name": "Grimoa",
         "tagline": "Le patrimoine français autour de vous",
         "accent": "#5B3A6E",
-        "category": "Voyage · Culture — 2026",
+        "category": "Voyage · Culture · 2026",
         "year": "2026",
         "ecran": "img/grimoa_ecran.png",
-        "desc": "Grimoa révèle le patrimoine français qui vous entoure : 208 380 lieux — monuments historiques mais aussi lavoirs, croix, menhirs et curiosités locales — affichés sur une carte. Validez vos visites sur place par géolocalisation, collectionnez des badges et remplissez la carte de France département par département.",
+        "desc": "Grimoa révèle le patrimoine français qui vous entoure : 208 380 lieux (monuments historiques mais aussi lavoirs, croix, menhirs et curiosités locales) affichés sur une carte. Validez vos visites sur place par géolocalisation, collectionnez des badges et remplissez la carte de France département par département.",
         "features": [
             "208 380 lieux référencés",
             "Validation des visites par géolocalisation (< 100 m)",
@@ -78,7 +78,7 @@ APPS = [
         "name": "Geodex",
         "tagline": "La géographie du monde, hors-ligne",
         "accent": "#1F5FA8",
-        "category": "Éducation · Quiz — 2025",
+        "category": "Éducation · Quiz · 2025",
         "year": "2025",
         "ecran": "img/geodex_ecran.png",
         "desc": "Geodex est une app de géographie entièrement hors-ligne, pensée comme un atlas de luxe : explorez le monde sur un globe 3D interactif, testez vos connaissances avec des quiz de placement à plusieurs niveaux de difficulté, et parcourez des fiches pays riches. Tout est embarqué, aucune connexion nécessaire.",
@@ -105,7 +105,7 @@ APPS = [
         "name": "Retour",
         "tagline": "Le rituel du retour de voyage",
         "accent": "#2B2B2B",
-        "category": "Lifestyle · Réflexion — 2026",
+        "category": "Lifestyle · Réflexion · 2026",
         "year": "2026",
         "ecran": "img/retour_ecran.png",
         "desc": "Retour est une app mono-usage au concept unique : elle détecte automatiquement votre retour de voyage et ouvre alors une fenêtre de 24 heures pour poser vos impressions à chaud, avant que le quotidien ne reprenne. Un rituel silencieux, minimaliste, qui transforme chaque voyage en souvenir écrit.",
@@ -131,7 +131,7 @@ APPS = [
         "name": "Mon Kawa",
         "tagline": "Votre compagnon café du quotidien",
         "accent": "#B4633A",
-        "category": "Lifestyle · Food — 2026",
+        "category": "Lifestyle · Food · 2026",
         "year": "2026",
         "ecran": "img/monkawa_ecran.png",
         "desc": "Mon Kawa aide les amateurs de café à mieux préparer, suivre et déguster : un coach de préparation étape par étape avec timer, un carnet de cafés avec photos et notes, un suivi de fraîcheur des paquets et des statistiques de palais. 100% local : zéro compte, zéro pub, zéro backend.",
@@ -158,7 +158,7 @@ APPS = [
         "name": "MicroCotiz",
         "tagline": "Le compagnon des auto-entrepreneurs",
         "accent": "#3A665B",
-        "category": "Finance · Productivité — 2026",
+        "category": "Finance · Productivité · 2026",
         "year": "2026",
         "ecran": "img/microcotiz_ecran.png",
         "desc": "MicroCotiz accompagne les auto-entrepreneurs au quotidien : saisie du chiffre d'affaires, livre des recettes, jauges des seuils micro et TVA en temps réel, simulation des cotisations URSSAF et rappels des échéances de déclaration. L'app fonctionne entièrement hors-ligne, sans compte, et embarque les barèmes officiels à jour.",
@@ -185,10 +185,10 @@ APPS = [
         "name": "Dimanche",
         "tagline": "L'app qui n'ouvre que le dimanche soir",
         "accent": "#17151C",
-        "category": "Lifestyle · Réflexion — 2026",
+        "category": "Lifestyle · Réflexion · 2026",
         "year": "2026",
         "ecran": "img/dimanche_ecran.png",
-        "desc": "Dimanche est une app mono-usage au concept radical : elle ne s'ouvre que le dimanche, de 18h à 22h. Trois questions par semaine — ce que vous voulez retenir, ce que vous avez laissé filer, ce que vous voulez planter — et vos réponses s'accumulent sur 52 semaines pour former le livre de votre année.",
+        "desc": "Dimanche est une app mono-usage au concept radical : elle ne s'ouvre que le dimanche, de 18h à 22h. Trois questions par semaine (ce que vous voulez retenir, ce que vous avez laissé filer, ce que vous voulez planter), et vos réponses s'accumulent sur 52 semaines pour former le livre de votre année.",
         "features": [
             "Ouverte uniquement le dimanche 18h–22h",
             "3 questions de réflexion par semaine",
@@ -211,7 +211,7 @@ APPS = [
         "name": "RisqCheck",
         "tagline": "Les risques naturels de votre adresse",
         "accent": "#2D5A3D",
-        "category": "Utilitaire · Immobilier — 2026",
+        "category": "Utilitaire · Immobilier · 2026",
         "year": "2026",
         "ecran": "img/risqcheck_ecran.png",
         "desc": "RisqCheck établit un diagnostic complet des risques naturels et technologiques pour n'importe quelle adresse en France : inondation, retrait-gonflement des argiles, séismes, radon, sites industriels… Le tout à partir des données publiques officielles Géorisques, présenté simplement et lisiblement.",
@@ -277,7 +277,7 @@ def header(active, root="", onepage=False):
     )
     return f"""<header>
   <a class="logo" href="{root}index.html">Portfolio</a>
-  <div class="status mono"><span class="dot"></span>Disponible — 2026</div>
+  <div class="status mono"><span class="dot"></span>Disponible · 2026</div>
   <nav>
 {nav}
   </nav>
@@ -329,16 +329,16 @@ def section_surmoi():
     return f"""<section class="page" id="sur-moi">
   <span class="mono" style="color:var(--muted)">Sur moi</span>
   <h1 class="giant">Tom<br>Soghomonian</h1>
-  <p class="big" style="margin-top:30px">Développeur iOS indépendant de <span id="age">32</span> ans, basé à Paris. Je conçois, développe et publie mes propres applications de A à Z — de l'idée au design, du code jusqu'à l'App Store.</p>
+  <p class="big" style="margin-top:30px">Développeur iOS indépendant de <span id="age">32</span> ans, basé à Paris. Je conçois, développe et publie mes propres applications de A à Z : de l'idée au design, du code jusqu'à l'App Store.</p>
   <div class="facts">
     <div><strong>{len(APPS)}</strong><span>apps développées</span></div>
     <div><strong>iOS</strong><span>React Native · Expo · TypeScript</span></div>
     <div><strong>Solo</strong><span>design, dev, publication</span></div>
   </div>
   <span class="mono sec-title">Mon parcours</span>
-  <p class="desc">Formé au web design (BTS), je me suis ensuite spécialisé en développement mobile en autodidacte. Aujourd'hui je construis des apps iOS complètes en solo : chaque projet part d'une idée simple, passe par le design, le développement, les tests, puis la publication et le suivi sur l'App Store. Micro-entrepreneur, je gère aussi tout le reste — fiches store, sites vitrines, marketing, support.</p>
+  <p class="desc">Formé au web design (BTS), je me suis ensuite spécialisé en développement mobile en autodidacte. Aujourd'hui je construis des apps iOS complètes en solo : chaque projet part d'une idée simple, passe par le design, le développement, les tests, puis la publication et le suivi sur l'App Store. Micro-entrepreneur, je gère aussi tout le reste : fiches store, sites vitrines, marketing, support.</p>
   <span class="mono sec-title">Ma façon de travailler</span>
-  <p class="desc">Je crois aux apps qui font une chose, et qui la font bien : des interfaces épurées, sans compte quand c'est possible, sans pub, respectueuses des données. Ma stack est la même sur tous mes projets — React Native, Expo, TypeScript — ce qui me permet d'aller vite de l'idée au store. Certaines de mes apps tournent sur mon propre backend auto-hébergé.</p>
+  <p class="desc">Je crois aux apps qui font une chose, et qui la font bien : des interfaces épurées, sans compte quand c'est possible, sans pub, respectueuses des données. Ma stack est la même sur tous mes projets (React Native, Expo, TypeScript), ce qui me permet d'aller vite de l'idée au store. Certaines de mes apps tournent sur mon propre backend auto-hébergé.</p>
   <span class="mono sec-title">Et aussi</span>
   <p class="desc">Je suis disponible pour développer votre application : particulier, indépendant ou petite entreprise, je prends en charge le projet de A à Z, du cahier des charges à la mise en ligne. <a href="#contact" style="border-bottom:2px solid var(--line)">Contactez-moi</a>.</p>
   <span class="mono sec-title">Mes apps</span>
@@ -354,8 +354,8 @@ def section_contact():
   <div class="contactlinks">
     <a href="mailto:soghomoniantom@gmail.com">soghomoniantom@gmail.com</a>
     <a href="https://github.com/Paprika92" target="_blank" rel="noopener">github.com/Paprika92</a>
-    <a href="https://www.malt.fr/profile/tomsoghomoniantom" target="_blank" rel="noopener">malt.fr — freelance</a>
-    <a href="https://www.codeur.com/-tomsogho" target="_blank" rel="noopener">codeur.com — freelance</a>
+    <a href="https://www.malt.fr/profile/tomsoghomoniantom" target="_blank" rel="noopener">malt.fr · freelance</a>
+    <a href="https://www.codeur.com/-tomsogho" target="_blank" rel="noopener">codeur.com · freelance</a>
   </div>
   <p class="mono" style="color:var(--muted);margin-top:40px">Basé à Paris · Réponse sous 24h</p>
 </section>"""
@@ -364,7 +364,7 @@ def section_contact():
 def build_index():
     names = ", ".join(f"'{app['name']}'" for app in APPS)
     return head(
-        "Portfolio — Tom Soghomonian, développeur d'apps",
+        "Portfolio · Tom Soghomonian, développeur d'apps",
         "Portfolio de Tom Soghomonian, développeur d'apps iOS indépendant. 8 applications publiées.",
     ) + "\n" + header("Projets", onepage=True) + f"""
 <main>
@@ -420,7 +420,7 @@ def build_redirect(anchor, title):
 <script>location.replace('{url}');</script>
 </head>
 <body>
-<p><a href="{url}">Cette page a déménagé — cliquez ici si la redirection ne se fait pas.</a></p>
+<p><a href="{url}">Cette page a déménagé : cliquez ici si la redirection ne se fait pas.</a></p>
 </body>
 </html>"""
 
@@ -436,7 +436,7 @@ def build_app(i):
         for src in app["gallery"]
     )
     return head(
-        f'{app["name"]} — Portfolio',
+        f'{app["name"]} · Portfolio',
         app["tagline"],
         root="../",
     ) + "\n" + header("Projets", root="../") + f"""
@@ -490,8 +490,8 @@ def write(path, content):
 def main():
     print("Build :")
     write("index.html", build_index())
-    write("sur-moi.html", build_redirect("sur-moi", "Sur moi — Tom Soghomonian"))
-    write("contact.html", build_redirect("contact", "Contact — Tom Soghomonian"))
+    write("sur-moi.html", build_redirect("sur-moi", "Sur moi · Tom Soghomonian"))
+    write("contact.html", build_redirect("contact", "Contact · Tom Soghomonian"))
     for i, app in enumerate(APPS):
         write(f"apps/{app['slug']}.html", build_app(i))
     print(f"OK — {3 + len(APPS)} fichiers générés.")

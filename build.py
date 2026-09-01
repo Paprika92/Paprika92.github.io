@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Incrémenter à chaque modification de css/style.css pour invalider le cache
 # (GitHub Pages sert le CSS avec max-age=600).
-CSS_VERSION = "3"
+CSS_VERSION = "4"
 
 # ---------------------------------------------------------------------------
 # Données centrales — une entrée par app, dans l'ordre du carrousel.
@@ -45,6 +45,7 @@ APPS = [
             "img/Hypetogo4.jpg",
         ],
         "store_id": "id6772987346",
+        "website": "https://hypetogo.studiopaprika.fr/",
     },
     {
         "slug": "grimoa",
@@ -72,6 +73,7 @@ APPS = [
             "img/grimoa-05-journal.jpg",
         ],
         "store_id": "id6793055341",
+        "website": "https://grimoa.studiopaprika.fr/",
     },
     {
         "slug": "geodex",
@@ -99,6 +101,7 @@ APPS = [
             "img/Geodex_profil.jpg",
         ],
         "store_id": "id6779577722",
+        "website": "https://geodex.studiopaprika.fr/",
     },
     {
         "slug": "retour",
@@ -125,6 +128,7 @@ APPS = [
             "img/retour5.png",
         ],
         "store_id": "id6776993896",
+        "website": "https://retour.studiopaprika.fr/",
     },
     {
         "slug": "monkawa",
@@ -152,6 +156,7 @@ APPS = [
             "img/kawa-5.png",
         ],
         "store_id": "id6789859509",
+        "website": "https://monkawa.studiopaprika.fr/",
     },
     {
         "slug": "microcotiz",
@@ -179,6 +184,7 @@ APPS = [
             "img/Microcotizfiche-conseil-appstore.jpg",
         ],
         "store_id": "id6793455032",
+        "website": "https://microcotiz.fr/",
     },
     {
         "slug": "dimanche",
@@ -205,6 +211,7 @@ APPS = [
             "img/dimanche-cap-5.png",
         ],
         "store_id": "id6775904530",
+        "website": "https://dimanche.studiopaprika.fr/",
     },
     {
         "slug": "risqcheck",
@@ -231,6 +238,7 @@ APPS = [
             "img/Risqcheckdroits-catnat.jpg",
         ],
         "store_id": "id6790358442",
+        "website": "https://risqcheck.studiopaprika.fr/",
     },
 ]
 
@@ -447,6 +455,10 @@ def build_app(i):
       <span class="mono" style="color:{app["accent"]}">{app["category"]}</span>
       <h1 class="giant">{app["name"]}</h1>
       <p class="tagline">{app["tagline"]}</p>
+      <div class="hero-cta">
+        <a class="store" href="https://apps.apple.com/fr/app/{app["store_id"]}" target="_blank" rel="noopener">Voir sur l'App Store</a>
+        <a class="store" href="{app["website"]}" target="_blank" rel="noopener">Voir le site</a>
+      </div>
     </div>
 {phone(app, "    ", root="../")}
   </div>
@@ -464,7 +476,6 @@ def build_app(i):
   <div class="stack">{stack}</div>
   <span class="mono sec-title">Captures</span>
   <div class="gallery">{gallery}</div>
-  <a class="store" href="https://apps.apple.com/fr/app/{app["store_id"]}" target="_blank" rel="noopener">Voir sur l'App Store ↗</a>
   <div class="pagenav">
     <a href="{prev_app["slug"]}.html">← {prev_app["name"]}</a>
     <a href="{next_app["slug"]}.html">{next_app["name"]} →</a>

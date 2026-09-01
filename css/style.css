@@ -174,6 +174,8 @@ h1.giant{
   transition:transform .2s;
 }
 .store:hover{transform:translateY(-3px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-cta .store{margin-top:0}
 .store.soon{background:none;border:1px dashed var(--muted);color:var(--muted);pointer-events:none}
 .pagenav{
   display:flex;justify-content:space-between;gap:20px;

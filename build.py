@@ -202,7 +202,7 @@ APPS = [
             "Votre année transformée en livre",
             "Design sombre, silencieux, sans distraction",
         ],
-        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "PocketBase (self-hosted)", "Notifications"],
+        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "Notifications"],
         "gallery": [
             "img/dimanche_Accueil.png",
             "img/dimanche-cap-2.png",

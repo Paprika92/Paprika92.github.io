@@ -110,25 +110,25 @@ APPS = [
         "accent": "#2B2B2B",
         "category": "Lifestyle · Réflexion · 2026",
         "year": "2026",
-        "ecran": "img/retour_ecran.png",
-        "desc": "Retour est une app mono-usage au concept unique : elle détecte automatiquement votre retour de voyage et ouvre alors une fenêtre de 24 heures pour poser vos impressions à chaud, avant que le quotidien ne reprenne. Un rituel silencieux, minimaliste, qui transforme chaque voyage en souvenir écrit.",
+        "ecran": "img/retour-01.png",
+        "desc": "Retour est une app 100 % locale, sans backend ni compte. Elle dort, et se réveille d'elle-même au retour de voyage (géofencing : absence de plus de 48 h à plus de 50 km de la maison). Elle reconstruit alors le voyage depuis la photothèque (dates + GPS EXIF, rien ne quitte le téléphone) et le présente comme un chapitre de livre à annoter : une question littéraire par étape, des planches photo à retenir ou écarter. On donne un titre au voyage, puis le chapitre est gravé, immuable, tampon rouge type passeport. Les chapitres s'accumulent dans une bibliothèque : table des matières et planisphère. Gratuit, premier chapitre offert. Achat unique 4,99 € : Le livre complet.",
         "features": [
-            "Détection automatique du retour de voyage",
-            "Fenêtre de réflexion de 24 heures",
-            "Rituel d'écriture guidé",
-            "Design silencieux et minimaliste",
-            "Souvenirs accumulés voyage après voyage",
+            "Détection automatique du retour de voyage (géofencing)",
+            "Reconstruction du voyage depuis la photothèque (100 % local)",
+            "Chapitre de livre à annoter, une question par étape",
+            "Gravure immuable, tampon type passeport",
+            "Bibliothèque : table des matières + carte des voyages",
         ],
-        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "PocketBase (self-hosted)", "Géolocalisation"],
+        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Géolocalisation (géofencing)", "expo-media-library (EXIF)", "d3-geo", "StoreKit"],
         "gallery": [
-            "img/retour_Accueil.png",
-            "img/retour2.png",
-            "img/retour3.png",
-            "img/retour4.png",
-            "img/retour5.png",
+            "img/retour-01.png",
+            "img/retour-02.png",
+            "img/retour-03.png",
+            "img/retour-04.png",
         ],
         "store_id": "id6776993896",
-        "website": "https://retour.studiopaprika.fr/",
+        "status": "review",
+        "website": "https://retour.studiopaprika.fr",
     },
     {
         "slug": "monkawa",
@@ -443,6 +443,13 @@ def build_app(i):
         f'<div class="shot"><img src="../{src}" alt="Capture {app["name"]}" loading="lazy"></div>'
         for src in app["gallery"]
     )
+    in_review = app.get("status") == "review"
+    if in_review:
+        store_cta = '<span class="store soon">En review</span>'
+        statut = "En review"
+    else:
+        store_cta = f'<a class="store" href="https://apps.apple.com/fr/app/{app["store_id"]}" target="_blank" rel="noopener">Voir sur l\'App Store</a>'
+        statut = "Sur l'App Store"
     return head(
         f'{app["name"]} · Portfolio',
         app["tagline"],
@@ -456,7 +463,7 @@ def build_app(i):
       <h1 class="giant">{app["name"]}</h1>
       <p class="tagline">{app["tagline"]}</p>
       <div class="hero-cta">
-        <a class="store" href="https://apps.apple.com/fr/app/{app["store_id"]}" target="_blank" rel="noopener">Voir sur l'App Store</a>
+        {store_cta}
         <a class="store" href="{app["website"]}" target="_blank" rel="noopener">Voir le site</a>
       </div>
     </div>
@@ -466,7 +473,7 @@ def build_app(i):
     <div><span>Plateforme</span><b>iOS</b></div>
     <div><span>Rôle</span><b>Design & développement</b></div>
     <div><span>Année</span><b>{app["year"]}</b></div>
-    <div><span>Statut</span><b>Sur l'App Store</b></div>
+    <div><span>Statut</span><b>{statut}</b></div>
   </div>
   <span class="mono sec-title">L'app</span>
   <p class="desc">{app["desc"]}</p>

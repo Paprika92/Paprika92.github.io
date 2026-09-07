@@ -110,7 +110,7 @@ APPS = [
         "accent": "#2B2B2B",
         "category": "Lifestyle · Réflexion · 2026",
         "year": "2026",
-        "ecran": "img/retour-01.png",
+        "ecran": "img/retour_ecran.png",
         "desc": "Retour est une app 100 % locale, sans backend ni compte. Elle dort, et se réveille d'elle-même au retour de voyage (géofencing : absence de plus de 48 h à plus de 50 km de la maison). Elle reconstruit alors le voyage depuis la photothèque (dates + GPS EXIF, rien ne quitte le téléphone) et le présente comme un chapitre de livre à annoter : une question littéraire par étape, des planches photo à retenir ou écarter. On donne un titre au voyage, puis le chapitre est gravé, immuable, tampon rouge type passeport. Les chapitres s'accumulent dans une bibliothèque : table des matières et planisphère. Gratuit, premier chapitre offert. Achat unique 4,99 € : Le livre complet.",
         "features": [
             "Détection automatique du retour de voyage (géofencing)",

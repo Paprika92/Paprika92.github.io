@@ -74,6 +74,17 @@ nav a:hover,nav a.active{color:var(--ink)}
   white-space:nowrap;
 }
 
+/* ---------- FOOTER LÉGAL ---------- */
+.sitefooter{
+  display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;
+  padding:20px 40px;
+  border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);
+}
+.sitefooter nav{gap:22px}
+.sitefooter a{color:var(--muted);transition:color .2s}
+.sitefooter a:hover{color:var(--ink)}
+
 /* ---------- CARROUSEL ---------- */
 #projets{position:relative}
 #stage{
@@ -236,6 +247,7 @@ p.big{
 
   /* Pages internes */
   main.page,section.page{padding:96px 20px 110px}
+  .sitefooter{padding:16px 20px}
   h1.giant{font-size:clamp(26px,9.6vw,40px)}
   p.big{font-size:clamp(17px,4.6vw,22px)}
   .facts{gap:22px 28px}

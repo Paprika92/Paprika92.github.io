@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Incrémenter à chaque modification de css/style.css pour invalider le cache
 # (GitHub Pages sert le CSS avec max-age=600).
-CSS_VERSION = "4"
+CSS_VERSION = "5"
 
 # ---------------------------------------------------------------------------
 # Données centrales — une entrée par app, dans l'ordre du carrousel.
@@ -246,14 +246,15 @@ APPS = [
 # Blocs communs
 # ---------------------------------------------------------------------------
 
-def head(title, description, root=""):
+def head(title, description, root="", noindex=False):
+    robots = '\n<meta name="robots" content="noindex">' if noindex else ""
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
-<meta name="description" content="{description}">
+<meta name="description" content="{description}">{robots}
 <link rel="icon" type="image/png" sizes="32x32" href="{root}favicon.png">
 <link rel="apple-touch-icon" href="{root}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -289,6 +290,16 @@ def header(active, root="", onepage=False):
 {nav}
   </nav>
 </header>"""
+
+
+def footer(root=""):
+    return f"""<footer class="sitefooter">
+  <span>© 2026 Tom Soghomonian · Studio Paprika</span>
+  <nav>
+    <a href="{root}mentions-legales.html">Mentions légales</a>
+    <a href="{root}confidentialite.html">Confidentialité</a>
+  </nav>
+</footer>"""
 
 
 def phone(app, indent, root=""):
@@ -379,6 +390,7 @@ def build_index():
 {section_surmoi()}
 {section_contact()}
 </main>
+{footer()}
 <script>
 const NAMES = [{names}];
 """ + """const rail = document.getElementById('rail');
@@ -428,6 +440,64 @@ def build_redirect(anchor, title):
 </head>
 <body>
 <p><a href="{url}">Cette page a déménagé : cliquez ici si la redirection ne se fait pas.</a></p>
+</body>
+</html>"""
+
+
+def build_mentions():
+    return head(
+        "Mentions légales · Tom Soghomonian",
+        "Mentions légales du site portfolio de Tom Soghomonian (Studio Paprika).",
+        noindex=True,
+    ) + "\n" + header("") + f"""
+<main class="page">
+  <a class="crumb mono" href="index.html">← Retour</a>
+  <span class="mono" style="color:var(--muted)">Légal</span>
+  <h1 class="giant">Mentions légales</h1>
+  <span class="mono sec-title">Éditeur du site</span>
+  <p class="desc">Le site studiopaprika.fr est édité par Tom Soghomonian, entrepreneur individuel (micro-entrepreneur).<br>
+  SIRET : 838 706 026 00013<br>
+  Adresse : 4 rue René Cassin, 92500 Rueil-Malmaison, France<br>
+  Contact : <a href="mailto:soghomoniantom@gmail.com" style="border-bottom:2px solid var(--line)">soghomoniantom@gmail.com</a></p>
+  <span class="mono sec-title">Directeur de la publication</span>
+  <p class="desc">Tom Soghomonian.</p>
+  <span class="mono sec-title">Hébergement</span>
+  <p class="desc">Le site est hébergé par GitHub, Inc. (service GitHub Pages)<br>
+  88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>
+  <a href="https://pages.github.com" target="_blank" rel="noopener" style="border-bottom:2px solid var(--line)">pages.github.com</a></p>
+  <span class="mono sec-title">Propriété intellectuelle</span>
+  <p class="desc">L'ensemble du contenu de ce site (textes, visuels, captures d'écran, code) est la propriété de Tom Soghomonian, sauf mention contraire. Les applications présentées (HypeToGo, Grimoa, Geodex, Retour, Mon Kawa, MicroCotiz, Dimanche, RisqCheck), leurs noms et leurs visuels sont également sa propriété. Toute reproduction, représentation ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
+  <span class="mono sec-title">Données personnelles</span>
+  <p class="desc">Ce site est un site vitrine statique : il ne collecte aucune donnée personnelle et n'utilise ni cookies ni traceurs. Pour en savoir plus, consultez la <a href="confidentialite.html" style="border-bottom:2px solid var(--line)">politique de confidentialité</a>.</p>
+</main>
+{footer()}
+</body>
+</html>"""
+
+
+def build_confidentialite():
+    return head(
+        "Politique de confidentialité · Tom Soghomonian",
+        "Politique de confidentialité du site portfolio de Tom Soghomonian (Studio Paprika).",
+        noindex=True,
+    ) + "\n" + header("") + f"""
+<main class="page">
+  <a class="crumb mono" href="index.html">← Retour</a>
+  <span class="mono" style="color:var(--muted)">Légal</span>
+  <h1 class="giant">Confidentialité</h1>
+  <p class="desc" style="margin-top:20px;color:var(--muted)">Dernière mise à jour : septembre 2026.</p>
+  <span class="mono sec-title">En bref</span>
+  <p class="desc">Ce site est un site vitrine statique. Il ne collecte aucune donnée personnelle : pas de compte, pas de formulaire, pas de cookie, pas de traceur, pas d'outil de mesure d'audience ni de publicité.</p>
+  <span class="mono sec-title">Hébergement et logs serveur</span>
+  <p class="desc">Le site est hébergé par GitHub, Inc. via le service GitHub Pages. Comme tout hébergeur, GitHub peut enregistrer des logs techniques (dont l'adresse IP des visiteurs) pour la sécurité et le bon fonctionnement de son service. Ces données sont traitées par GitHub conformément à sa <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener" style="border-bottom:2px solid var(--line)">politique de confidentialité</a> ; l'éditeur du site n'y a pas accès et n'en fait aucun usage.</p>
+  <span class="mono sec-title">Polices de caractères</span>
+  <p class="desc">Les polices du site sont chargées depuis Google Fonts. Lors du chargement d'une page, votre navigateur transmet votre adresse IP aux serveurs de Google. Ce traitement est couvert par la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="border-bottom:2px solid var(--line)">politique de confidentialité de Google</a>.</p>
+  <span class="mono sec-title">Contact par e-mail</span>
+  <p class="desc">Si vous m'écrivez à <a href="mailto:soghomoniantom@gmail.com" style="border-bottom:2px solid var(--line)">soghomoniantom@gmail.com</a>, votre adresse et le contenu de votre message sont utilisés uniquement pour vous répondre. Ils ne sont ni transmis à des tiers, ni utilisés à des fins commerciales.</p>
+  <span class="mono sec-title">Vos droits</span>
+  <p class="desc">Conformément au RGPD, vous disposez de droits d'accès, de rectification, d'effacement et d'opposition sur vos données personnelles. Pour toute demande, écrivez à <a href="mailto:soghomoniantom@gmail.com" style="border-bottom:2px solid var(--line)">soghomoniantom@gmail.com</a>. Vous pouvez également adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener" style="border-bottom:2px solid var(--line)">cnil.fr</a>).</p>
+</main>
+{footer()}
 </body>
 </html>"""
 
@@ -487,6 +557,7 @@ def build_app(i):
     <a href="{next_app["slug"]}.html">{next_app["name"]} →</a>
   </div>
 </main>
+{footer(root="../")}
 
 <style>
   .gallery .shot img {{ cursor: pointer; }}
@@ -568,9 +639,11 @@ def main():
     write("index.html", build_index())
     write("sur-moi.html", build_redirect("sur-moi", "Sur moi · Tom Soghomonian"))
     write("contact.html", build_redirect("contact", "Contact · Tom Soghomonian"))
+    write("mentions-legales.html", build_mentions())
+    write("confidentialite.html", build_confidentialite())
     for i, app in enumerate(APPS):
         write(f"apps/{app['slug']}.html", build_app(i))
-    print(f"OK — {3 + len(APPS)} fichiers générés.")
+    print(f"OK — {5 + len(APPS)} fichiers générés.")
 
 
 if __name__ == "__main__":

@@ -264,6 +264,7 @@ APPS = [
             "img/05-replay-fr.png",
         ],
         "store_id": "id6810299190",
+        "website": "https://grattis.studiopaprika.fr/",
     },
 ]
 

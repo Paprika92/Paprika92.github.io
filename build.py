@@ -239,6 +239,32 @@ APPS = [
         "store_id": "id6790358442",
         "website": "https://risqcheck.studiopaprika.fr/",
     },
+    {
+        "slug": "grattis",
+        "name": "Grattis",
+        "tagline": "Offrez un ticket à gratter personnalisé",
+        "accent": "#7B4FC9",
+        "category": "Lifestyle · Cadeau · 2026",
+        "year": "2026",
+        "ecran": "img/grattis_ecran.png",
+        "desc": "Grattis transforme une photo, un message ou un bon pour en ticket à gratter, caché sous une feuille métallisée. On choisit son foil, on programme la révélation, puis on envoie un lien à chaque destinataire. Il gratte du bout du doigt, et vous recevez en retour le replay de son grattage avec sa réaction.",
+        "features": [
+            "Trois contenus à cacher : une photo avec légende, un message ou un bon pour",
+            "Des masques métallisés au choix (or, argent, holo, rose…), avec texte et picto personnalisables",
+            "Révélation programmée : le destinataire voit un compte à rebours jusqu'au jour J",
+            "Plusieurs destinataires, chacun avec son propre lien et une expiration réglable (7 jours, 30 jours, jamais)",
+            "Replay du grattage et réaction du destinataire, à revoir et à partager",
+        ],
+        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "Skia (rendu du grattage)", "RevenueCat", "Cloudflare Workers (KV + R2)", "i18next (multilingue)", "Notifications push"],
+        "gallery": [
+            "img/01-home-fr.png",
+            "img/02-editor-fr.png",
+            "img/03-mask-fr.png",
+            "img/04-sending-fr.png",
+            "img/05-replay-fr.png",
+        ],
+        "store_id": "id6810299190",
+    },
 ]
 
 
@@ -383,7 +409,7 @@ def build_index():
     names = ", ".join(f"'{app['name']}'" for app in APPS)
     return head(
         "Portfolio · Tom Soghomonian, développeur d'apps",
-        "Portfolio de Tom Soghomonian, développeur d'apps iOS indépendant. 8 applications publiées.",
+        f"Portfolio de Tom Soghomonian, développeur d'apps iOS indépendant. {len(APPS)} applications publiées.",
     ) + "\n" + header("Projets", onepage=True) + f"""
 <main>
 {section_projets()}
@@ -445,6 +471,7 @@ def build_redirect(anchor, title):
 
 
 def build_mentions():
+    app_names = ", ".join(app["name"] for app in APPS)
     return head(
         "Mentions légales · Tom Soghomonian",
         "Mentions légales du site portfolio de Tom Soghomonian (Studio Paprika).",
@@ -466,7 +493,7 @@ def build_mentions():
   88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>
   <a href="https://pages.github.com" target="_blank" rel="noopener" style="border-bottom:2px solid var(--line)">pages.github.com</a></p>
   <span class="mono sec-title">Propriété intellectuelle</span>
-  <p class="desc">L'ensemble du contenu de ce site (textes, visuels, captures d'écran, code) est la propriété de Tom Soghomonian, sauf mention contraire. Les applications présentées (HypeToGo, Grimoa, Geodex, Retour, Mon Kawa, MicroCotiz, Dimanche, RisqCheck), leurs noms et leurs visuels sont également sa propriété. Toute reproduction, représentation ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
+  <p class="desc">L'ensemble du contenu de ce site (textes, visuels, captures d'écran, code) est la propriété de Tom Soghomonian, sauf mention contraire. Les applications présentées ({app_names}), leurs noms et leurs visuels sont également sa propriété. Toute reproduction, représentation ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
   <span class="mono sec-title">Données personnelles</span>
   <p class="desc">Ce site est un site vitrine statique : il ne collecte aucune donnée personnelle et n'utilise ni cookies ni traceurs. Pour en savoir plus, consultez la <a href="confidentialite.html" style="border-bottom:2px solid var(--line)">politique de confidentialité</a>.</p>
 </main>
@@ -519,6 +546,11 @@ def build_app(i):
     else:
         store_cta = f'<a class="store" href="https://apps.apple.com/fr/app/{app["store_id"]}" target="_blank" rel="noopener">Voir sur l\'App Store</a>'
         statut = "Sur l'App Store"
+    site_cta = (
+        f'\n        <a class="store" href="{app["website"]}" target="_blank" rel="noopener">Voir le site</a>'
+        if app.get("website")
+        else ""
+    )
     return head(
         f'{app["name"]} · Portfolio',
         app["tagline"],
@@ -532,8 +564,7 @@ def build_app(i):
       <h1 class="giant">{app["name"]}</h1>
       <p class="tagline">{app["tagline"]}</p>
       <div class="hero-cta">
-        {store_cta}
-        <a class="store" href="{app["website"]}" target="_blank" rel="noopener">Voir le site</a>
+        {store_cta}{site_cta}
       </div>
     </div>
 {phone(app, "    ", root="../")}

@@ -293,6 +293,7 @@ APPS = [
             "img/reliq-06-widget.png",
         ],
         "store_id": "id6789882523",
+        "website": "https://reliq.studiopaprika.fr/",
     },
 ]
 

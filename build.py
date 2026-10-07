@@ -266,6 +266,34 @@ APPS = [
         "store_id": "id6810299190",
         "website": "https://grattis.studiopaprika.fr/",
     },
+    {
+        "slug": "reliq",
+        "name": "Reliq",
+        "tagline": "La galerie de tes goûts culturels",
+        "accent": "#C9B37E",
+        "category": "Culture · Galerie · 2026",
+        "year": "2026",
+        "ecran": "img/reliq_ecran.png",
+        "desc": "Reliq expose les livres, albums, jeux vidéo et films préférés comme des reliques dans une galerie éditoriale privée. Quatre salles — Bibliothèque, Discothèque, Ludothèque, Cinémathèque — de dix pièces maximum : l'ordre est le classement, et le N°1 fait la couverture. Chaque œuvre a son cartel de musée, les vraies covers sont récupérées automatiquement, et tout reste sur l'iPhone : pas de compte, pas de pub, aucune donnée collectée.",
+        "features": [
+            "Quatre salles classées du N°1 au N°10, le N°1 en couverture",
+            "Deux accueils : le Salon (mur d'accrochage) ou le Cabinet (vue par salle)",
+            "Recherche pré-remplie via TMDB, RAWG, Open Library et iTunes, ou cover générative hors-ligne",
+            "Cartel de musée par œuvre : note, histoire, fiche technique, presse, tags",
+            "Partage en carte 9:16 pour les stories",
+            "Widget écran d'accueil, thèmes Nuit et Jour, sauvegarde locale",
+        ],
+        "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "Reanimated", "TMDB", "RAWG", "Open Library", "API iTunes"],
+        "gallery": [
+            "img/reliq-01-salon.png",
+            "img/reliq-02-fiche.png",
+            "img/reliq-03-detail.png",
+            "img/reliq-04-liste.png",
+            "img/reliq-05-partage.png",
+            "img/reliq-06-widget.png",
+        ],
+        "store_id": "id6789882523",
+    },
 ]
 
 
